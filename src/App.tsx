@@ -172,6 +172,29 @@ const Hero = () => {
               </div>
               <p>Joined by <span className="text-white font-bold">2,500+</span> fitness enthusiasts</p>
             </div>
+
+            {/* Success Goals */}
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {[
+                { label: "Posture Accuracy", value: "98%", icon: <Target className="w-4 h-4 text-primary" /> },
+                { label: "Injury Reduction", value: "100%", icon: <AlertCircle className="w-4 h-4 text-red-400" /> },
+                { label: "Faster Results", value: "3X", icon: <TrendingUp className="w-4 h-4 text-green-400" /> }
+              ].map((goal, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + (i * 0.1) }}
+                  className="glass p-4 rounded-2xl border-white/5 hover:border-primary/30 transition-all group"
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    {goal.icon}
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-gray-500 group-hover:text-gray-300 transition-colors">{goal.label}</span>
+                  </div>
+                  <div className="text-2xl font-display font-black text-white">{goal.value}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
